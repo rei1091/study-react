@@ -3,7 +3,7 @@ import styles from 'src/styles/Home.module.css'
 import { Main } from 'src/components/Main'
 import { Header } from 'src/components/Header'
 import { Footer } from 'src/components/Footer'
-import { useCallback, useEffect } from 'react'
+import {  useEffect, useState } from 'react'
 
 //  const handleClick = (e, foo)=>{
 //  	console.log(e.target.href);
@@ -12,22 +12,22 @@ import { useCallback, useEffect } from 'react'
 //  };
 
 export default function Home() {
-	const foo = 1;
+	const [count, setCount] = useState(1);
+	// let foo = 1;
 
-  const handleClick = useCallback((e)=>{
-  console.log(e.target.href);
- 	 e.preventDefault();
-		alert(foo);
-  }, []);
+  const handleClick = (e) => {
+		setCount((count)=>count+1);
+		setCount((count)=>count+1);
+		// foo = foo+1;
+	};
 
 	useEffect(()=> {
-		console.log('マウント時');
     document.body.style.backgroundColor ="lightblue";
 		return()=>{
-			console.log('アンマウント時');
 			document.body.style.backgroundColor ="";
 		}
 	},[])
+
 
 	return (
 		<div className={styles.container}>
@@ -35,9 +35,10 @@ export default function Home() {
 				<title>Index Paga</title>
 			</Head>
       <Header />
-		  <a href="/about" onClick={handleClick}
+			<h1>{count}</h1>
+		  <button onClick={handleClick}
 			>
-			ボタン</a>
+			ボタン</button>
 			<Main page='index' />
 			<Footer />
 		</div>
