@@ -12,18 +12,18 @@ export default function Home() {
 
   const handleClick = useCallback(() => {
 		if(count <10){
-			setCount((count)=>count+1);
+			setCount((prevCount)=>prevCount+1);
 		}
 		// foo = foo+1;
 		//第二引数を指定し不要なレンダリングをさせない
 	}, [count]);
 
 	const handoleDisplay = useCallback(()=>{
-		setIsShow((isShow)=>
+		setIsShow((prevIsShow)=>
 			// if(isShow){
 			//   return false;
 			// }
-			 !isShow//isShow ? false: true;
+		!prevIsShow//isShow ? false: true;
 		);
 	}, []);
 
