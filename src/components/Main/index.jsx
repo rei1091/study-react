@@ -36,13 +36,13 @@ export function Main(props) {
 
 	return (
 		<main className={classes.main}>
-			<Headline page={props.page} handleReduce={handleReduce}
+			<Headline page={props.page} handleReduce={handleReduce} 
 			//code={<code className={styles.code}>pages/index.js</code>}
 			>
 				{items.length > 1 ? " Number of Items are " : " Number of Item is "} 
-				<code className={classes.code}>{items.length}</code> of 4
+				<code className={classes.code}>{items.length}</code> of 4.
 			</Headline>
-			<Links items={items}   />
+			<Links items={items}  />
 		</main>
 
 	)
